@@ -29,7 +29,7 @@ Game.prototype = {
   setGridSize: function(new_val){ this.grid_size = new_val; },
   newColor: function(){
     this.current_color = Please.make_color();
-    this.coinflip = Math.floor(Math.random()*2)
+    this.coinflip = Math.floor(Math.random()*2);
     this.mad_color = this.coinflip==0?tinycolor(this.current_color).brighten(this.level).toString():tinycolor(this.current_color).darken(this.level).toString();
   },
   testBoxes: function(evt){
