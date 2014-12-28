@@ -2,7 +2,7 @@ var game;
 document.addEventListener('DOMContentLoaded', function(){
   var world = document.querySelector('#game');
   game = new Game();
-  game.init(world, 4);
+  game.init(world, 6);
 });
 
 function getRandomMinMax(min, max) {

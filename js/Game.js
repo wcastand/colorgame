@@ -47,7 +47,7 @@ Game.prototype = {
     });
   },
   createGrid: function(){
-    var size_box = this.canvas.width / this.grid_size;
+    var size_box = this.canvas.width / this.grid_size - 10;
     var the_box = [getRandomMinMax(0, this.grid_size), getRandomMinMax(0, this.grid_size)];
     for (var i = 0; i < this.grid_size; i++){
       for(var j = 0; j < this.grid_size; j++){
