@@ -14,37 +14,32 @@ Box.prototype = {
   hitTest: function(source) { return (source.x < this.x + this.size && source.x > this.x && source.y < this.y + this.size && source.y > this.y); },
   testColor: function(mad_color) { return (this.color == mad_color); },
   drawPolygon: function(ctx, pts, radius) {
-    if (radius > 0) {
+    if (radius > 0)
       pts = this.getRoundedPoints(pts, radius);
-    }
     var i, pt, len = pts.length;
     ctx.beginPath();
-    for (i = 0; i < len; i++) {
+    for (i = 0; i < len; i++){
       pt = pts[i];
-      if (i == 0) {
+      if (i == 0)
         ctx.moveTo(pt[0], pt[1]);
-      } else {
+      else
         ctx.lineTo(pt[0], pt[1]);
-      }
-      if (radius > 0) {
+      if (radius > 0)
         ctx.quadraticCurveTo(pt[2], pt[3], pt[4], pt[5]);
-      }
     }
     ctx.closePath();
   },
   getRoundedPoints: function(pts, radius) {
-    var i1, i2, i3, p1, p2, p3, prevPt, nextPt,
-    len = pts.length,
-    res = new Array(len);
-    for (i2 = 0; i2 < len; i2++) {
+    var i1, i2, i3, p1, p2, p3, prevPt, nextPt;
+    var len = pts.length;
+    var res = new Array(len);
+    for (i2 = 0; i2 < len; i2++){
       i1 = i2-1;
       i3 = i2+1;
-      if (i1 < 0) {
+      if (i1 < 0)
         i1 = len - 1;
-      }
-      if (i3 == len) {
+      if (i3 == len)
         i3 = 0;
-      }
       p1 = pts[i1];
       p2 = pts[i2];
       p3 = pts[i3];
@@ -55,8 +50,8 @@ Box.prototype = {
     return res;
   },
   getRoundedPoint: function(x1, y1, x2, y2, radius, first) {
-    var total = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)),
-    idx = first ? radius / total : (total - radius) / total;
+    var total = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    var idx = first ? radius / total : (total - radius) / total;
     return [x1 + (idx * (x2 - x1)), y1 + (idx * (y2 - y1))];
   }
 }
