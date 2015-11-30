@@ -1,4 +1,4 @@
-colorgame
+ColorGame
 =========
 
-colorGame
+Jeu de couleur trop bien tavu ?
